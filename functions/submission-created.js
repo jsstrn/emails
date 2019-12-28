@@ -3,12 +3,14 @@ const templateId = "d-56e970c0a6f740aea7ba6744f806987d";
 
 exports.handler = function(event, context, callback) {
   try {
-    console.log(event);
+    const body = JSON.parse(event.body);
+    const {email} = body.payload;
+    console.log(email);
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
     const message = {
-      to: "test@example.com",
+      to: email,
       from: {name: "Jumpstart", email: "info@jumpstart.sh"},
       template_id: templateId
     };
@@ -20,6 +22,7 @@ exports.handler = function(event, context, callback) {
       body: "Email has been delivered"
     });
   } catch (error) {
+    console.error(error);
     callback(error);
   }
 };
