@@ -1,4 +1,5 @@
 const sgMail = require("@sendgrid/mail");
+const templateId = "d-56e970c0a6f740aea7ba6744f806987d";
 
 exports.handler = function(event, context, callback) {
   try {
@@ -11,16 +12,15 @@ exports.handler = function(event, context, callback) {
 
     const message = {
       to: email,
-      from: "test@example.com",
-      subject: "My first email",
-      text: "This is my first email"
+      from: "info@jumpstart.sh",
+      template_id: templateId
     };
 
     sgMail.send(message);
 
     callback(null, {
       statusCode: 200,
-      body: "Welcome email was sent"
+      body: "Email has been delivered"
     });
   } catch (error) {
     callback(error);
