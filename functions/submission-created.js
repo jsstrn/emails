@@ -4,7 +4,7 @@ const templateId = "d-56e970c0a6f740aea7ba6744f806987d";
 exports.handler = function(event, context, callback) {
   try {
     const body = JSON.parse(event.body);
-    const {email} = body.payload;
+    const {name, email} = body.payload;
     console.log(email);
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -12,7 +12,8 @@ exports.handler = function(event, context, callback) {
     const message = {
       to: email,
       from: {name: "Jumpstart", email: "info@jumpstart.sh"},
-      template_id: templateId
+      template_id: templateId,
+      dynamic_template_data: {name}
     };
 
     sgMail.send(message);
