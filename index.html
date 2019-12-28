@@ -7,13 +7,19 @@
     <title>Form</title>
   </head>
   <body>
-    <form name="application" method="POST" data-netlify="true">
+    <form
+      name="application"
+      method="POST"
+      data-netlify-recaptcha="true"
+      data-netlify="true"
+    >
       <p>
         <label>Your Name: <input type="text" name="name"/></label>
       </p>
       <p>
         <label>Your Email: <input type="email" name="email"/></label>
       </p>
+      <div data-netlify-recaptcha="true"></div>
       <p>
         <button type="submit">Send</button>
       </p>
