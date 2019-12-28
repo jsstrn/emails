@@ -5,7 +5,8 @@ exports.handler = function(event, context, callback) {
   try {
     const body = JSON.parse(event.body);
     const {name, email} = body.payload;
-    console.log(email);
+    console.log(event);
+    console.log(context);
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
