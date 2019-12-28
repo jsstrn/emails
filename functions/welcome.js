@@ -12,7 +12,7 @@ exports.handler = function(event, context, callback) {
 
     const message = {
       to: email,
-      from: "info@jumpstart.sh",
+      from: {name: "Jumpstart", email: "info@jumpstart.sh"},
       template_id: templateId
     };
 
