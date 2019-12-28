@@ -11,7 +11,7 @@ exports.handler = function(event, context, callback) {
 
     const message = {
       to: email,
-      from: {name: "Jumpstart", email: "info@jumpstart.sh"},
+      from: {name: "Jumpstart Team", email: "info@jumpstart.sh"},
       template_id: templateId,
       dynamic_template_data: {name}
     };
