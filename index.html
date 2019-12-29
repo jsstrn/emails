@@ -4,26 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Form</title>
+    <title>Jumpstart Application</title>
   </head>
   <body>
+    <h1>Jumpstart Application</h1>
     <form
-      name="Jumpstart Application Form"
+      name="Jumpstart Application"
       method="POST"
       data-netlify-recaptcha="true"
       data-netlify="true"
     >
       <p>
         <label
-          >Full name (as in NRIC/FIN) <input type="text" name="name" required
+          >Full name (as it appears on your NRIC/FIN)
+          <input type="text" name="name" required
         /></label>
       </p>
       <p>
         <label>Email <input type="email" name="email" required/></label>
       </p>
       <p>
-        <label>Resume <input type="file" name="resume" required/></label>
+        <label
+          >Citizenship status
+          <input
+            type="radio"
+            name="citizenship"
+            value="Singapore citizen"
+            required
+          />
+          Singapore citizen
+          <input
+            type="radio"
+            name="citizenship"
+            value="Singapore permanent resident"
+            required
+          />
+          Singapore permanent resident
+          <input type="radio" name="citizenship" value="Foreigner" required />
+          Foreigner</label
+        >
       </p>
+      <p>
+        <label
+          >Resume (PDF) <input type="file" name="resume" accept=".pdf" required
+        /></label>
+      </p>
+      <input
+        type="checkbox"
+        name="agreement"
+        value="I agree to the privacy policy"
+        required
+      />
+      I agree to the privacy policy.
       <div data-netlify-recaptcha="true"></div>
       <p>
         <button type="submit">Send</button>
