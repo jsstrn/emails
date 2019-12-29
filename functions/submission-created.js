@@ -4,7 +4,8 @@ const templateId = "d-56e970c0a6f740aea7ba6744f806987d";
 exports.handler = function(event, context, callback) {
   try {
     const body = JSON.parse(event.body);
-    const {name, email} = body.payload;
+    const {name, email, citizenship, resume} = body.payload.data;
+
     console.log(event);
     console.log(context);
 
@@ -14,7 +15,7 @@ exports.handler = function(event, context, callback) {
       to: email,
       from: {name: "Jumpstart Team", email: "info@jumpstart.sh"},
       template_id: templateId,
-      dynamic_template_data: {name}
+      dynamic_template_data: {name, email, citizenship, resume}
     };
 
     sgMail.send(message);
